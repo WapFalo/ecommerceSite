@@ -38,11 +38,13 @@
 								{{ form_row(form.image) }}
 							</div>
 						</div>
+						<h5 class="my-2">Product inventory</h5>
+						<div class="row justify-content-center">{{ form_row(form.quantity) }}</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="row justify-content-center mt-3">
+			<div class="row justify-content-center mt-4">
 				<div class="col-sm-4">
 					<a href="{{ path('app_admin_product_index') }}">
 						<button type="button" class="btn-block btn-secondary">Go back</button>
@@ -63,4 +65,4 @@
 			</div>
 		</div>
 	</div>
-</div></div>
+</div>

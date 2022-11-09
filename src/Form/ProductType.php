@@ -43,6 +43,14 @@ class ProductType extends AbstractType
                 },
                 'placeholder' => 'None',
                 'required' => false,
+            ])
+            ->add('quantity', IntegerType::class, [
+                'data' => $options['data']->getInventory()?->getQuantity(),
+                'attr' => [
+                    'min' => 0,
+                    'max' => 99999999,
+                ],
+                'mapped' => false,
             ]);
     }
 

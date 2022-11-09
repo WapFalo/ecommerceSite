@@ -61,7 +61,8 @@
 									<td>{{ product.price }}
 										€</td>
 									<td>
-										<span class="status text-success">&bull;</span>
+										<span class="status text-{% if product.inventory.quantity > 10 %}success{% elseif product.inventory.quantity > 0 %}warning{% else %}danger{% endif %}">&bull;</span>
+										{{ product.inventory.quantity }}
 									</td>
 									<td>
 										<a href="{{ path('app_admin_product_edit', {'id': product.id}) }}">
