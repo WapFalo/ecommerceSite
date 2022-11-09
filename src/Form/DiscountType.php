@@ -23,7 +23,8 @@ class DiscountType extends AbstractType
                 'attr' => [
                     'min' => -1,
                     'max' => 99999999,
-                ]
+                ],
+                'help' => 'Set to -1 for unlimited usage.',
             ])
             ->add('price', MoneyType::class, [
                 'label' => 'Value',
