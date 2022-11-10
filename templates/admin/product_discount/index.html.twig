@@ -1,0 +1,120 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block title %}Products discounts overview
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col-sm-5">
+							<h2>Products discounts
+								<b>Management</b>
+							</h2>
+						</div>
+						<div class="col-sm-7">
+							<a href="{{ path('app_admin_product_discount_new') }}" class="btn btn-secondary">
+								<i class="material-icons">&#xE147;</i>
+								<span>Add New Products discount</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Description</th>
+							<th>%</th>
+							<th>Products</th>
+							<th>Active</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for product_discount in product_discounts %}
+							<tr>
+								<td>{{ product_discount.id }}</td>
+								<td>
+									<a href="{{ path('app_admin_product_discount_edit', {'id': product_discount.id}) }}">
+										{{ product_discount.name }}
+									</a>
+								</td>
+								<td>
+									{% if product_discount.description|length < 40 %}
+										{{ product_discount.description }}
+									{% else %}
+										<small>
+											<a href="{{ path('app_admin_product_discount_edit', {'id': product_discount.id}) }}">
+												Click to read... (too long to display)
+											</a>
+										</small>
+									{% endif %}
+								</td>
+								<td>{{ product_discount.percent }}
+									%</td>
+								<td>
+									{% if product_discount.products|length > 5 %}
+										<a href="{{ path('app_admin_product_discount_edit', {'id': product_discount.id}) }}">
+											Click to read... (too long to display)
+										</a>
+									{% elseif product_discount.products|length > 0 %}
+										<p>
+											{% for product in product_discount.products %}
+												<a href="{{ path('app_admin_product_edit', {'id': product.id}) }}">
+													{{ product.name }}
+												</a>
+											{% endfor %}
+										</p>
+									{% endif %}
+								</td>
+								<td>
+									<span class="status text-{% if product_discount.active %}success{% else %}danger{% endif %}">&bull;</span>
+								</td>
+								<td>
+									<a href="{{ path('app_admin_product_discount_edit', {'id': product_discount.id}) }}">
+										<i class="material-icons">&#xE8B8;</i>
+									</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="7">
+									<b>No discount found</b>
+									(maybe check the database?)
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<div class="clearfix">
+					<div class="hint-text">Showing
+						<b>{{ product_discounts|length }}</b>
+						out of
+						<b>{{ product_discounts|length }}</b>
+						entries</div>
+					<ul class="pagination">
+						<li class="page-item disabled">
+							<a href="#">Previous</a>
+						</li>
+						<li class="page-item active">
+							<a href="#" class="page-link">1</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">2</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">3</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">Next</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

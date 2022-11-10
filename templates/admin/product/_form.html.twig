@@ -44,7 +44,7 @@
 				</div>
 			</div>
 
-			<div class="row justify-content-center mt-4">
+			<div class="row justify-content-center my-4">
 				<div class="col-sm-4">
 					<a href="{{ path('app_admin_product_index') }}">
 						<button type="button" class="btn-block btn-secondary">Go back</button>
@@ -63,6 +63,34 @@
 					</div>
 				{% endif %}
 			</div>
+
+			{% if product.id %}
+				<h4>Product discounts</h4>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Name</th>
+							<th scope="col">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for discount in product.discounts %}
+							<tr class="table-{% if discount.active %}success{% else %}danger {% endif %}">
+								<th scope="row">{{ discount.id }}</th>
+								<td>
+									<a href="{{ path('app_admin_product_discount_edit', {'id': discount.id}) }}">{{ discount.name }}</a>
+								</td>
+								<td>{{ discount.description }}</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="3">No discounts found.</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			{% endif %}
 		</div>
 	</div>
 </div>
