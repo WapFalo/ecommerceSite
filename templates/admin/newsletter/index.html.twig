@@ -1,0 +1,82 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block title %}Newsletter overview
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col-sm-5">
+							<h2>Newsletter
+								<b>Management</b>
+							</h2>
+						</div>
+					</div>
+				</div>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th width="90%">Email</th>
+							<th>Active</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for newsletter in newsletters %}
+							<tr>
+								<td>
+									{{ newsletter.mail }}
+								</td>
+								<td>
+									<span class="status text-{% if newsletter.active %}success{% else %}danger{% endif %}">&bull;</span>
+								</td>
+								<td>
+									<form method="post" action="{{ path('app_admin_newsletter_status', {'id': newsletter.id}) }}">
+										<button class="btn-block btn-{% if newsletter.active %}danger{% else %}success{% endif %}">
+											{% if newsletter.active %}Disable{% else %}Enable
+											{% endif %}
+										</button>
+									</form>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="7">
+									<b>No newsletter found</b>
+									(maybe check the database?)
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<div class="clearfix">
+					<div class="hint-text">Showing
+						<b>{{ newsletters|length }}</b>
+						out of
+						<b>{{ newsletters|length }}</b>
+						entries</div>
+					<ul class="pagination">
+						<li class="page-item disabled">
+							<a href="#">Previous</a>
+						</li>
+						<li class="page-item active">
+							<a href="#" class="page-link">1</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">2</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">3</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">Next</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
