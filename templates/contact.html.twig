@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+<body>
+
+<div class="container">
+    <div class="column_contactpage">
+        <h1>EcoBlues</h1>
+            <p>● Do you have questions about our products and service?<br> Contact us, we will answer you. We will answer<br> you as soon as possible.</p>
+            <p>● In addition to our form, find us on facebook, or youtube.</p>
+        <div class="contactpage_more">
+            <h2>Location :</h2>
+                <p>● You can find our premises at this address (offices):</p><br>
+                <strong>29 Street Cadroin, 75056 Paris, French</strong>
+            <h3>Call us at :</h3>
+                <p>● In addition to our form, we have a 24/7 customer<br> service throughout Europe:</p><br>
+                <strong>+33 6 49 82 88 73<br>+33 7 61 22 65 58</strong>
+        </div>
+    </div>
+    <div class="column_contactpage">
+      <form class="conctatform>
+        <label for="name">Name :</label>
+            <input type="text" id="name" name="name" placeholder="Your name">
+        <label for="email">Email :</label>
+            <input type="text" id="email" name="email" placeholder="Your email">
+        <label for="country">Country :</label>
+            <input type="text" id="country" name="country" placeholder="French, Spanich, UK..">
+        <label for="subject">Subject :</label>
+        <textarea id="subject" name="subject" placeholder="Inform us precisely of the product or service to which you wish to communicate" style="height:170px"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+</div>
+
+</body>
+
+{% endblock %}
