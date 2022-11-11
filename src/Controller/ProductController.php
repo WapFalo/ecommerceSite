@@ -38,16 +38,19 @@ class ProductController extends AbstractController
     #[Route('/products', name: 'app_product_list')]
     public function index(Request $request, ProductsCategoryRepository $productsCategoryRepository, ProductRepository $productRepository): Response
     {
+        $products = $productRepository->findAll();
+        $products_length = count($products);
+
         if ($request->query->has('category')) {
             $products = $productsCategoryRepository->find($request->get('category'))->getProducts();
-        } else {
-            $products = $productRepository->findAll();
         }
+
         $categories = $productsCategoryRepository->findAll();
 
         return $this->render('allproduct.html.twig', [
             'categories' => $categories,
             'products' => $products,
+            'products_length' => $products_length,
         ]);
     }
 }

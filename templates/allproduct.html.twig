@@ -15,6 +15,11 @@
 							</div>
 							<div class="widgets_inner">
 								<ul class="list">
+									<li>
+										<a href="{{ path('app_product_list') }} ">
+											All</a>
+										<span>({{ products_length }})</span>
+									</li>
 									{% for category in categories %}
 										<li>
 											<a href="{{ path('app_product_list', {'category': category.id}) }} ">
