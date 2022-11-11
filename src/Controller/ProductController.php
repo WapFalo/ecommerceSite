@@ -15,10 +15,12 @@ class ProductController extends AbstractController
     #[Route('/product', name: 'app_product_show')]
     public function show(Request $request, ProductRepository $productRepository): Response
     {
-        if ($request->query->has('id')) {
-            $product = $productRepository->find($request->get('id'));
+        $product = $productRepository->find($request->get('id'));
+        if ($product) {
+            //pass the product to the view
         } else {
-            $product = $productRepository->findOneBy([], ['id' => 'DESC']);
+            $products = $productRepository->findAll();
+            $product = $products[array_rand($products)];
         }
 
         return $this->render('product.html.twig', [

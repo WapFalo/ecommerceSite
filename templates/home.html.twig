@@ -15,12 +15,12 @@
 										<div class="banner_text_iner">
 											<h1>Recycled Wind Turbines</h1>
 											<p>Peak performance wind turbines for your home while also providing renewables materials</p>
-											<a href="#" class="btn_2">buy now</a>
+											<a href="{{ path('app_product_show', {'id': 3}) }}" class="btn_2">buy now</a>
 										</div>
 									</div>
 								</div>
 								<div class="banner_img d-none d-lg-block A">
-									<img src="img/wind_turbine.png" alt="">
+									<img src="img/wind_turbine.png" alt="Recycled Wind Turbines">
 								</div>
 							</div>
 						</div>
@@ -31,12 +31,12 @@
 										<div class="banner_text_iner">
 											<h1>Recycled Tidal turbines</h1>
 											<p>Fitting tidal turbines for your home to reduce your bill</p>
-											<a href="#" class="btn_2">buy now</a>
+											<a href="{{ path('app_product_show', {'id': 14}) }}" class="btn_2">buy now</a>
 										</div>
 									</div>
 								</div>
 								<div class="banner_img d-none d-lg-block">
-									<img src="img/tidal_turbine.png" alt="">
+									<img src="img/tidal_turbine.png" alt="Recycled Tidal turbines">
 								</div>
 							</div>
 						</div>
@@ -47,12 +47,12 @@
 										<div class="banner_text_iner">
 											<h1>Solar panels</h1>
 											<p>An already established technology that was proven effective for domestic uses</p>
-											<a href="#" class="btn_2">buy now</a>
+											<a href="{{ path('app_product_show', {'id': 5}) }}" class="btn_2">buy now</a>
 										</div>
 									</div>
 								</div>
 								<div class="banner_img d-none d-lg-block">
-									<img src="img/solar_panel.png" alt="">
+									<img src="img/solar_panel.png" alt="Solar panels">
 								</div>
 							</div>
 						</div>
@@ -98,7 +98,7 @@
 						<div class="single_feature_post_text">
 							<p>Wind Powered</p>
 							<h3>Latest Home Wind Turbines</h3>
-							<a href="#" class="feature_btn">EXPLORE NOW
+							<a href="{{ path('app_product_list', {'category': 3}) }}" class="feature_btn">EXPLORE NOW
 								<i class="fas fa-play"></i>
 							</a>
 							<img src="img/feature/wind_turbine_2.png" alt="">
@@ -108,7 +108,7 @@
 						<div class="single_feature_post_text">
 							<p>Sun Powered</p>
 							<h3>Solar panels & alimentation</h3>
-							<a href="#" class="feature_btn">EXPLORE NOW
+							<a href="{{ path('app_product_list', {'category': 5}) }}" class="feature_btn">EXPLORE NOW
 								<i class="fas fa-play"></i>
 							</a>
 							<img src="img/feature/mobile_solar_generator.png" alt="">
@@ -118,7 +118,7 @@
 						<div class="single_feature_post_text">
 							<p>Water Powered</p>
 							<h3>A New Way For Tidal Power</h3>
-							<a href="#" class="feature_btn">EXPLORE NOW
+							<a href="{{ path('app_product_list', {'category': 4}) }}" class="feature_btn">EXPLORE NOW
 								<i class="fas fa-play"></i>
 							</a>
 							<img src="img/feature/tidal_turbine_2.png" alt="">
@@ -172,7 +172,8 @@
 								<div class="single_product_text">
 									<h4>Colloidal Battery</h4>
 									<h3>150.00€</h3>
-									<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+									<a href="{{ path('app_product_show', {'id': 4}) }}" class="add_cart">+ add to cart<i class="fa fa-heart"></i>
+									</a>
 								</div>
 							</div>
 							<div class="single_product_item">
@@ -180,7 +181,8 @@
 								<div class="single_product_text">
 									<h4>Junction Box</h4>
 									<h3>40.00€</h3>
-									<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+									<a href="{{ path('app_product_show', {'id': 11}) }}" class="add_cart">+ add to cart<i class="fa fa-heart"></i>
+									</a>
 								</div>
 							</div>
 							<div class="single_product_item">
@@ -188,7 +190,8 @@
 								<div class="single_product_text">
 									<h4>House Solar Panel Unit</h4>
 									<h3>2000.00€</h3>
-									<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+									<a href="{{ path('app_product_show', {'id': 5}) }}" class="add_cart">+ add to cart<i class="fa fa-heart"></i>
+									</a>
 								</div>
 							</div>
 							<div class="single_product_item">
@@ -196,7 +199,8 @@
 								<div class="single_product_text">
 									<h4>Solar Battery</h4>
 									<h3>2000.00€</h3>
-									<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+									<a href="{{ path('app_product_show', {'id': 7}) }}" class="add_cart">+ add to cart<i class="fa fa-heart"></i>
+									</a>
 								</div>
 							</div>
 							<div class="single_product_item">
@@ -204,7 +208,7 @@
 								<div class="single_product_text">
 									<h4>Wind Turbine</h4>
 									<h3>2000.00€</h3>
-									<a href="#" class="add_cart">+ add to cart</a>
+									<a href="{{ path('app_product_show', {'id': 3}) }}" class="add_cart">+ add to cart</a>
 								</div>
 							</div>
 						</div>
