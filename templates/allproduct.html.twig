@@ -1,17 +1,9 @@
 {% extends "base.html.twig" %}
 
+{% block title %}Products - EcoBlues
+{% endblock %}
+
 {% block body %}
-	<!doctype html>
-	<html lang="zxx">
-
-		<head>
-
-
-			<body></body>
-		</head>
-	</html>
-
-
 	<section class="cat_product_area section_padding">
 		<div class="container">
 			<div class="row">
@@ -23,186 +15,38 @@
 							</div>
 							<div class="widgets_inner">
 								<ul class="list">
-									<li>
-										<a href="#">
-											Awkward</a>
-										<span>(250)</span>
-									</li>
-									<li>
-										<a href="#">Installation</a>
-										<span>(250)</span>
-									</li>
-									<li>
-										<a href="#">Wind</a>
-										<span>(250)</span>
-									</li>
-									<li>
-										<a href="#">Water</a>
-										<span>(250)</span>
-									</li>
-									<li>
-										<a href="#">Solar</a>
-										<span>(250)</span>
-									</li>
-								</div>
-							</aside>
-							<aside class="left_widgets p_filter_widgets"></aside>
-							<aside class="left_widgets p_filter_widgets"></aside>
-							<aside class="left_widgets p_filter_widgets price_rangs_aside">
-								<div class="l_w_title"></div>
-								<div class="widgets_inner">
-									<div
-										class="range_item">
-										<!-- <div id="slider-range"></div> -->
-
-										<div class="d-flex">
-											<div class="price_text"></div>
-
-										</div>
-									</div>
-								</div>
-							</aside>
-						</div>
+									{% for category in categories %}
+										<li>
+											<a href="{{ path('app_product_list', {'category': category.id}) }} ">
+												{{ category.name }}</a>
+											<span>({{ category.products|length }})</span>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</aside>
 					</div>
-					<div class="col-lg-9">
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="product_top_bar d-flex justify-content-between align-items-center">
-									<div class="single_product_menu"></div>
-									<div class="single_product_menu d-flex"></div>
-									<div class="single_product_menu d-flex">
-
-										<div class="top_pageniation"></div>
-									</div>
-									<div class="single_product_menu d-flex">
-										<div class="input-group">
-											<input type="text" class="form-control" placeholder="search" aria-describedby="inputGroupPrepend">
-											<div class="input-group-prepend">
-												<span class="input-group-text" id="inputGroupPrepend">
-													<i class="ti-search"></i>
-												</span>
-											</div>
+				</div>
+				<div class="col-lg-9">
+					<div class="row align-items-center latest_product_inner">
+						{% for product in products %}
+							<div class="col-lg-4 col-sm-6">
+								<a href="{{ path('app_product_show', {'id': product.id }) }}">
+									<div class="single_product_item">
+										<img src="{{ product.image }}" alt="{{ product.name }} image">
+										<div class="single_product_text">
+											<h4>{{ product.name }}</h4>
+											<h3>{{ product.price }}</h3>
+											<a href="#" class="add_cart">+ add to cart<i class="fa fa-heart"></i>
+											</a>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
-						</div>
-						<div class="row align-items-center latest_product_inner">
-							<div class="col-lg-4 col-sm-6">
-								<div class="single_product_item">
-									<img src="img/product/product_1.png" alt="">
-									<div class="single_product_text">
-										<h4>Quartz Belt Watch</h4>
-										<h3>$150.00</h3>
-										<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-6">
-								<div class="single_product_item">
-									<img src="img/product/product_2.png" alt="">
-									<div class="single_product_text">
-										<h4>Quartz Belt Watch</h4>
-										<h3>$150.00</h3>
-										<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-6">
-								<div class="single_product_item">
-									<img src="img/product/product_3.png" alt="">
-									<div class="single_product_text">
-										<h4>Quartz Belt Watch</h4>
-										<h3>$150.00</h3>
-										<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-6">
-								<div class="single_product_item">
-									<img src="img/product/product_4.png" alt="">
-									<div class="single_product_text">
-										<h4>Quartz Belt Watch</h4>
-										<h3>$150.00</h3>
-										<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-6">
-								<div class="single_product_item">
-									<img src="img/product/product_5.png" alt="">
-									<div class="single_product_text">
-										<h4>Quartz Belt Watch</h4>
-										<h3>$150.00</h3>
-										<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-6">
-								<div class="single_product_item">
-									<img src="img/product/product_6.png" alt="">
-									<div class="single_product_text">
-										<h4>Quartz Belt Watch</h4>
-										<h3>$150.00</h3>
-										<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-6">
-								<div class="single_product_item">
-									<img src="img/product/product_7.png" alt="">
-									<div class="single_product_text">
-										<h4>Quartz Belt Watch</h4>
-										<h3>$150.00</h3>
-										<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-6">
-								<div class="single_product_item">
-									<img src="img/product/product_8.png" alt="">
-									<div class="single_product_text">
-										<h4>Quartz Belt Watch</h4>
-										<h3>$150.00</h3>
-										<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-6">
-								<div class="single_product_item">
-									<img src="img/product/product_2.png" alt="">
-									<div class="single_product_text">
-										<h4>Quartz Belt Watch</h4>
-										<h3>$150.00</h3>
-										<a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-12">
-								<div class="pageination">
-									<nav aria-label="Page navigation example">
-										<ul class="pagination justify-content-center">
-											<li class="page-item">
-												<a class="page-link" href="#" aria-label="Previous">
-													<i class="ti-angle-double-left"></i>
-												</a>
-											</li>
-										</ul>
-									</nav>
-								</div>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
-		</section><!--================End Category Product Area =================--></body>
-</body></head></html>{% endblock %}
+		</div>
+	</section>
+{% endblock %}
